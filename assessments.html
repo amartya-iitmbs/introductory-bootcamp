@@ -202,18 +202,21 @@
                     <div class="mb-8">
                         <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
                             <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
-                            <p class="text-lg mb-4">The Winter Finance Bootcamp will start from <strong>January 2nd, 2026</strong>.</p>
-                            <p class="text-lg mb-4">All case studies and assessments will be posted from then on as the bootcamp progresses.</p>
-                            <p class="text-lg">Please check back regularly for case study assignments and assessment schedules.</p>
+                            <p class="text-lg mb-4">Week 1 contents are now <strong>available</strong>!</p>
+                            <p class="text-lg mb-4">All case studies and assessments will be posted as the bootcamp progresses.</p>
+                            <p class="text-lg mb-4">Please check back regularly for case study assignments and assessment schedules.</p>
+                            <div class="mt-4">
+                                <button onclick="highlightWeek1()" class="px-6 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors">Go to Week 1</button>
+                            </div>
                         </div>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
+                        <div id="week1CaseStudy" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300">
                             <h3 class="text-lg font-bold mb-2 text-terminal-green">Week 1 Case Study</h3>
                             <p class="text-sm text-gray-400">January 3-4, 2026</p>
                             <p class="text-sm mt-2">Topic: Introduction to Finance & Financial Systems</p>
-                            <p class="text-xs text-gray-500 mt-2">Available when bootcamp begins</p>
+                            <p class="text-xs text-terminal-green mt-2 font-bold">✓ AVAILABLE NOW</p>
                         </div>
 
                         <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
@@ -262,9 +265,7 @@
                     <p class="text-sm text-gray-400">January 2 - February 5, 2026</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-terminal-green transition-colors">Terms</a>
-                    <a href="#" class="text-gray-400 hover:text-terminal-green transition-colors">Privacy</a>
-                    <a href="#" class="text-gray-400 hover:text-terminal-green transition-colors">Contact</a>
+                    <a href="mailto:finance.society@study.iitm.ac.in" class="text-gray-400 hover:text-terminal-green transition-colors">Contact</a>
                 </div>
             </div>
             <div class="mt-8 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
@@ -518,6 +519,21 @@
                 terminal.classList.toggle('open');
             }
         });
+
+        // Highlight Week 1 function
+        function highlightWeek1() {
+            const week1Element = document.getElementById('week1CaseStudy');
+            week1Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            week1Element.style.borderColor = '#00ff41';
+            week1Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
+            week1Element.style.transform = 'scale(1.02)';
+            
+            setTimeout(() => {
+                week1Element.style.borderColor = '';
+                week1Element.style.boxShadow = '';
+                week1Element.style.transform = '';
+            }, 3000);
+        }
     </script>
 </body>
 </html>
