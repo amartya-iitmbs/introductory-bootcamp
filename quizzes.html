@@ -327,37 +327,64 @@
             <div class="text-xs terminal-text mb-3">TRADING DESK</div>
             <nav class="space-y-2">
                 <a href="index.html" class="terminal-tab flex items-center p-3 rounded-lg hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group">
-                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
-                    <div class="flex-1">
-                        <div class="font-mono text-sm">MAIN DESK</div>
-                        <div class="text-xs text-gray-400">Home Terminal</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="font-mono text-sm truncate">MAIN DESK</div>
+                        <div class="text-xs text-gray-400 truncate">Home Terminal</div>
                     </div>
-                    <div class="text-xs text-gray-500">ONLINE</div>
+                    <div class="text-xs text-gray-500 flex-shrink-0 ml-2">ONLINE</div>
                 </a>
                 
                 <a href="quizzes.html" class="terminal-tab flex items-center p-3 rounded-lg bg-terminal-bg-light border border-terminal-green border-opacity-50 text-terminal-green transition-all duration-200 group">
-                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    <div class="flex-1">
-                        <div class="font-mono text-sm">QUIZZES</div>
-                        <div class="text-xs text-gray-400">Knowledge Assessment</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="font-mono text-sm truncate">QUIZZES</div>
+                        <div class="text-xs text-gray-400 truncate">Knowledge Assessment</div>
                     </div>
-                    <div class="text-xs terminal-green">● ACTIVE</div>
+                    <div class="text-xs terminal-green flex-shrink-0 ml-2">● ACTIVE</div>
                 </a>
                 
                 <a href="assessments.html" class="terminal-tab flex items-center p-3 rounded-lg hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group">
-                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     </svg>
-                    <div class="flex-1">
-                        <div class="font-mono text-sm">ASSESSMENTS</div>
-                        <div class="text-xs text-gray-400">Case Studies</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="font-mono text-sm truncate">ASSESSMENTS</div>
+                        <div class="text-xs text-gray-400 truncate">Case Studies</div>
                     </div>
-                    <div class="text-xs text-gray-500">5 FILES</div>
+                    <div class="text-xs text-gray-500 flex-shrink-0 ml-2">5 FILES</div>
                 </a>
+                
+                <!-- Content Section with Dropdown -->
+                <div class="terminal-content-dropdown">
+                    <button id="contentDropdown" class="terminal-tab flex items-center p-3 rounded-lg hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group w-full">
+                        <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                        <div class="flex-1 min-w-0 text-left">
+                            <div class="font-mono text-sm truncate">CONTENT</div>
+                            <div class="text-xs text-gray-400 truncate">Week Materials</div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-500 transition-transform duration-200 flex-shrink-0 ml-2" id="dropdownArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div id="contentSubmenu" class="ml-4 mt-1 space-y-1 hidden">
+                        <a href="week1.html" class="terminal-tab flex items-center p-2 rounded hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group">
+                            <span class="terminal-green mr-2">01</span>
+                            <div class="flex-1">
+                                <div class="font-mono text-xs">WEEK 1</div>
+                                <div class="text-xs text-gray-500">Foundations</div>
+                            </div>
+                            <div class="text-xs text-terminal-green">● LIVE</div>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -469,7 +496,7 @@
         updateTime();
         setInterval(updateTime, 1000);
 
-        // Highlight active page
+        // Highlight active page and initialize dropdown
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.terminal-tab').forEach(item => {
@@ -486,6 +513,36 @@
                     }
                 }
             });
+
+            // Content dropdown functionality
+            const contentDropdown = document.getElementById('contentDropdown');
+            const contentSubmenu = document.getElementById('contentSubmenu');
+            const dropdownArrow = document.getElementById('dropdownArrow');
+            
+            if (contentDropdown && contentSubmenu && dropdownArrow) {
+                contentDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isHidden = contentSubmenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        contentSubmenu.classList.remove('hidden');
+                        dropdownArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        contentSubmenu.classList.add('hidden');
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!contentDropdown.contains(e.target) && !contentSubmenu.contains(e.target)) {
+                        contentSubmenu.classList.add('hidden');
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
         });
 
         // Close terminal when clicking outside
