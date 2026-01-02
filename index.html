@@ -209,7 +209,7 @@
                 <p class="text-xl md:text-2xl mb-8 text-terminal-blue">Amartya Finance Society - IITMBS</p>
                 <p class="text-lg mb-8 max-w-2xl mx-auto">January 2, 2026 – February 5, 2026 | 100% Online</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#overview" class="px-8 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors">VIEW SCHEDULE</a>
+                    <a href="week1.html" class="px-8 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors">VIEW SCHEDULE</a>
                 </div>
                 
                 <!-- Stats -->
@@ -235,6 +235,60 @@
         </div>
     </header>
 
+    <!-- Week 1 Release Notice -->
+    <section class="py-12 bg-terminal-bg border-b border-terminal-green border-opacity-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="card p-8 rounded-lg border border-terminal-green border-opacity-40">
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse"></div>
+                            <span class="terminal-text font-mono text-sm tracking-wider">ANNOUNCEMENT</span>
+                            <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="inline-flex items-center mb-4">
+                            <span class="terminal-text text-2xl font-bold mr-3">WEEK 1</span>
+                            <span class="text-terminal-blue text-2xl font-bold">LIVE</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-terminal-green">Foundations of Finance</h3>
+                        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                            Access video lectures, case studies, and learning materials for Week 1. 
+                            Build your foundation in financial systems and terminology.
+                        </p>
+                        
+                        <div class="flex items-center justify-center space-x-6 text-sm text-gray-400 mb-8">
+                            <div class="flex items-center">
+                                <span class="terminal-green mr-2">▸</span>
+                                <span>3 Video Lectures</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="terminal-blue mr-2">▸</span>
+                                <span>2 Case Studies</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-terminal-amber mr-2">▸</span>
+                                <span>PDF Resources</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="week1.html" class="px-8 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center group">
+                                <span class="mr-2 group-hover:translate-x-1 transition-transform">→</span>
+                                Access Module
+                            </a>
+                            <a href="#overview" class="px-8 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-all duration-300">
+                                Full Schedule
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Program Overview -->
     <section id="overview" class="py-16 bg-terminal-bg-light">
         <div class="container mx-auto px-4">
@@ -242,7 +296,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Week 1 -->
-                <div class="card p-6 rounded-lg relative">
+                <div class="card p-6 rounded-lg relative hover:border-terminal-green cursor-pointer" onclick="window.location.href='week1.html'">
                     <div class="flex items-center mb-4">
                         <span class="terminal-text font-bold text-xl mr-2">WEEK1</span>
                         <span class="text-xs bg-terminal-green bg-opacity-20 text-terminal-green px-2 py-1 rounded">FOUNDATIONS</span>
@@ -265,6 +319,9 @@
                             <span>Quiz Window</span>
                         </li>
                     </ul>
+                    <div class="mt-4 pt-4 border-t border-terminal-green border-opacity-20">
+                        <a href="week1.html" class="text-terminal-green hover:underline text-sm font-medium">→ Access Week 1 Content</a>
+                    </div>
                 </div>
 
                 <!-- Week 2 -->
@@ -565,6 +622,30 @@
                 }
             });
         });
+        
+        // Content dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentDropdown = document.getElementById('contentDropdown');
+            const contentSubmenu = document.getElementById('contentSubmenu');
+            const dropdownArrow = document.getElementById('dropdownArrow');
+            
+            if (contentDropdown && contentSubmenu && dropdownArrow) {
+                contentDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isHidden = contentSubmenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        contentSubmenu.classList.remove('hidden');
+                        dropdownArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        contentSubmenu.classList.add('hidden');
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+        });
     </script>
 
     <!-- Trading Terminal Navigation -->
@@ -669,6 +750,33 @@
                     </div>
                     <div class="text-xs text-gray-500">5 FILES</div>
                 </a>
+                
+                <!-- Content Section with Dropdown -->
+                <div class="terminal-content-dropdown">
+                    <button id="contentDropdown" class="terminal-tab flex items-center p-3 rounded-lg hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group w-full">
+                        <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                        <div class="flex-1 text-left">
+                            <div class="font-mono text-sm">CONTENT</div>
+                            <div class="text-xs text-gray-400">Week Materials</div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-500 transition-transform duration-200" id="dropdownArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div id="contentSubmenu" class="ml-4 mt-1 space-y-1 hidden">
+                        <a href="week1.html" class="terminal-tab flex items-center p-2 rounded hover:bg-terminal-bg-light border border-transparent hover:border-terminal-green border-opacity-30 text-gray-400 hover:text-terminal-green transition-all duration-200 group">
+                            <span class="terminal-green mr-2">01</span>
+                            <div class="flex-1">
+                                <div class="font-mono text-xs">WEEK 1</div>
+                                <div class="text-xs text-gray-500">Foundations</div>
+                            </div>
+                            <div class="text-xs text-terminal-green">● LIVE</div>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </div>
 
