@@ -206,11 +206,12 @@
                     <div class="mb-8">
                         <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
                             <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 1 contents are now <strong>available</strong>!</p>
+                            <p class="text-lg mb-4">Week 1 and Week 2 contents are now <strong>available</strong>!</p>
                             <p class="text-lg mb-4">All case studies and assessments will be posted as the bootcamp progresses.</p>
                             <p class="text-lg mb-4">Please check back regularly for case study assignments and assessment schedules.</p>
-                            <div class="mt-4">
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
                                 <button onclick="highlightWeek1()" class="px-6 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors">Go to Week 1</button>
+                                <button onclick="highlightWeek2()" class="px-6 py-2 bg-terminal-blue text-white font-bold rounded hover:bg-terminal-blue hover:bg-opacity-80 transition-colors">Go to Week 2</button>
                             </div>
                         </div>
                     </div>
@@ -231,11 +232,19 @@
                             </div>
                         </div>
 
-                        <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
+                        <div id="week2CaseStudy" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green">
                             <h3 class="text-lg font-bold mb-2 text-terminal-green">Week 2 Case Study</h3>
                             <p class="text-sm text-gray-400">January 10-11, 2026</p>
-                            <p class="text-sm mt-2">Topic: Time Value of Money & Risk Analysis</p>
-                            <p class="text-xs text-gray-500 mt-2">Available when bootcamp begins</p>
+                            <p class="text-sm mt-2">Topic: Dot-Com Bubble Burst & Risk Analysis</p>
+                            <p class="text-xs text-terminal-green mt-2 font-bold">✓ AVAILABLE NOW</p>
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                                <a href="week2.html#case-study" class="px-4 py-2 border border-terminal-green rounded hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
+                                    View Case Studies
+                                </a>
+                                <a href="week2.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
+                                    Full Week 2
+                                </a>
+                            </div>
                         </div>
 
                         <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
@@ -601,6 +610,21 @@
                 week1Element.style.borderColor = '';
                 week1Element.style.boxShadow = '';
                 week1Element.style.transform = '';
+            }, 3000);
+        }
+
+        // Highlight Week 2 function
+        function highlightWeek2() {
+            const week2Element = document.getElementById('week2CaseStudy');
+            week2Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            week2Element.style.borderColor = '#00ff41';
+            week2Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
+            week2Element.style.transform = 'scale(1.02)';
+            
+            setTimeout(() => {
+                week2Element.style.borderColor = '';
+                week2Element.style.boxShadow = '';
+                week2Element.style.transform = '';
             }, 3000);
         }
     </script>
