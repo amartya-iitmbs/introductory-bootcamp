@@ -196,9 +196,11 @@
                     <div class="mb-8">
                         <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
                             <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 1 is an <strong>introductory week</strong> and will not have a quiz.</p>
-                            <p class="text-lg mb-4">Quizzes will start from Week 2 onwards.</p>
-                            <p class="text-lg">Please check back regularly for quiz assignments and assessment schedules.</p>
+                            <p class="text-lg mb-4">Week 2 quiz is now <strong class="text-terminal-green">live</strong>!</p>
+                            <p class="text-lg mb-4">Test your knowledge on Time Value of Money, Present & Future Value, and Risk & Return concepts.</p>
+                            <button id="highlightWeek2Btn" class="px-6 py-2 border border-terminal-green rounded-md text-terminal-green hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
+                                VIEW WEEK 2 QUIZ
+                            </button>
                         </div>
                     </div>
 
@@ -210,11 +212,22 @@
                             <p class="text-sm text-gray-400">Topics: Introduction to Finance, Financial Systems</p>
                         </div>
 
-                        <div class="border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green hover:shadow-lg hover:shadow-terminal-green">
-                            <h3 class="text-terminal-green font-bold mb-2">Week 2 Quiz Window</h3>
-                            <p>January 11-12, 2026</p>
-                            <p class="text-sm text-gray-400">Topics: Time Value of Money, Present & Future Value, Risk and Return</p>
-                            <p class="text-terminal-amber font-bold text-sm mt-2">⏰ Deadline: January 12, 2026 - 12:00 PM</p>
+                        <div id="week2QuizSection" class="border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green hover:shadow-lg hover:shadow-terminal-green">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-terminal-green font-bold text-lg">Week 2 Quiz</h3>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse mr-2"></div>
+                                    <span class="text-terminal-green text-sm font-bold">LIVE NOW</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-2">January 11-12, 2026</p>
+                            <p class="text-sm text-gray-400 mb-3">Topics: Time Value of Money, Present & Future Value, Risk and Return</p>
+                            <div class="bg-terminal-bg-light rounded border border-terminal-amber border-opacity-50 p-3 mb-3">
+                                <div class="text-center">
+                                    <div class="text-terminal-amber font-bold text-sm mb-1">DEADLINE</div>
+                                    <div class="text-terminal-amber font-bold">JANUARY 12, 2026 - 12:00 PM</div>
+                                </div>
+                            </div>
                             <div class="mt-3">
                                 <a href="https://forms.gle/8wJn9e4jVL6M8eTR6" target="_blank" class="px-4 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors text-sm">
                                     Take Quiz Now
@@ -486,6 +499,38 @@
 
         closeTerminal.addEventListener('click', () => {
             terminal.classList.remove('open');
+        });
+
+        // Highlight Week 2 Quiz section
+        function highlightWeek2Quiz() {
+            const week2Section = document.getElementById('week2QuizSection');
+            if (week2Section) {
+                // Add highlight class
+                week2Section.classList.add('border-terminal-blue', 'shadow-lg', 'shadow-terminal-blue');
+                
+                // Scroll to the section with offset for fixed header
+                const headerOffset = 100;
+                const elementPosition = week2Section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Remove highlight after 3 seconds
+                setTimeout(() => {
+                    week2Section.classList.remove('border-terminal-blue', 'shadow-lg', 'shadow-terminal-blue');
+                }, 3000);
+            }
+        }
+
+        // Add click event to highlight button
+        document.addEventListener('DOMContentLoaded', () => {
+            const highlightBtn = document.getElementById('highlightWeek2Btn');
+            if (highlightBtn) {
+                highlightBtn.addEventListener('click', highlightWeek2Quiz);
+            }
         });
 
         // Update time
