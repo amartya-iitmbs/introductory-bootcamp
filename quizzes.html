@@ -204,13 +204,15 @@
                     <h2 class="text-2xl font-bold mb-6 terminal-text">Quiz Schedule</h2>
                     
                     <div class="mb-8">
-                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-amber border-opacity-20">
-                            <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 3 quiz <strong class="text-terminal-amber">coming soon</strong>!</p>
-                            <p class="text-lg mb-4">Prepare for Financial Markets, Equity Markets, and Market Participants topics.</p>
-                            <button id="highlightWeek3Btn" class="mt-4 px-6 py-2 border border-terminal-amber rounded-md text-terminal-amber bg-opacity-10 cursor-not-allowed transition-colors text-sm" disabled>
-                                COMING SOON
-                            </button>
+                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
+                            <h3 class="text-xl font-bold mb-4 text-terminal-green">Important Notice</h3>
+                            <p class="text-lg mb-4">Week 3 quiz is now <strong class="text-terminal-green">live</strong>!</p>
+                            <p class="text-lg mb-4">Test your knowledge on Financial Markets, Equity Markets, and Market Participants.</p>
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                                <a href="https://forms.gle/9FFoKT88U4dAydgk8" target="_blank" class="px-6 py-2 border border-terminal-green rounded-md text-terminal-green hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
+                                    GO TO QUIZ
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -248,26 +250,26 @@
                             </div>
                         </div>
 
-                        <div id="week3Quiz" class="case-study-card border border-terminal-amber border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-amber">
+                        <div id="week3Quiz" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green">
                             <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-lg font-bold text-terminal-amber">Week 3 Quiz</h3>
+                                <h3 class="text-lg font-bold text-terminal-green">Week 3 Quiz</h3>
                                 <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-terminal-amber rounded-full animate-pulse mr-2"></div>
-                                    <span class="text-terminal-amber text-sm font-bold">COMING SOON</span>
+                                    <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse mr-2"></div>
+                                    <span class="text-terminal-green text-sm font-bold">LIVE NOW</span>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-400">January 18-19, 2026</p>
                             <p class="text-sm mt-2">Topics: Financial Markets, Equity Markets, Market Participants</p>
                             <div class="bg-terminal-bg-light rounded border border-terminal-amber border-opacity-50 p-3 my-3">
                                 <div class="text-center">
-                                    <div class="text-terminal-amber font-bold text-sm mb-1">QUIZ WINDOW</div>
-                                    <div class="text-terminal-amber font-bold text-sm">JANUARY 18-19, 2026</div>
+                                    <div class="text-terminal-amber font-bold text-sm mb-1">DEADLINE</div>
+                                    <div class="text-terminal-amber font-bold text-sm">JANUARY 19, 2026 - 12:00 PM</div>
                                 </div>
                             </div>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <button class="px-4 py-2 border border-terminal-amber rounded hover:bg-terminal-amber hover:bg-opacity-10 transition-colors text-sm text-terminal-amber bg-opacity-10 cursor-not-allowed" disabled>
-                                    Coming Soon
-                                </button>
+                                <a href="https://forms.gle/9FFoKT88U4dAydgk8" target="_blank" class="px-4 py-2 border border-terminal-green rounded hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm text-terminal-green">
+                                    Attempt Now
+                                </a>
                                 <a href="weeks/week3.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
                                     View Week 3
                                 </a>
@@ -551,7 +553,7 @@
             terminal.classList.remove('open');
         });
 
-        // Highlight Quiz section function
+        // Content dropdown functionality
         function highlightQuiz(weekNumber) {
             const element = document.getElementById(`week${weekNumber}Quiz`);
             if (element) {
@@ -595,49 +597,39 @@
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.terminal-tab').forEach(item => {
-                if (item.getAttribute('href') === currentPage) {
-                    item.classList.add('bg-terminal-bg-light', 'border-terminal-green', 'border-opacity-50', 'text-terminal-green');
-                    item.classList.remove('text-gray-400', 'border-transparent');
-                    
-                    // Update status to active
-                    const statusElement = item.querySelector('.text-xs:last-child');
-                    if (statusElement && !statusElement.textContent.includes('ACTIVE')) {
-                        statusElement.textContent = '● ACTIVE';
-                        statusElement.classList.add('terminal-green');
-                        statusElement.classList.remove('text-gray-500');
-                    }
+                item.classList.remove('text-terminal-green', 'text-terminal-blue', 'text-terminal-amber');
+                item.classList.add('text-gray-400');
+            });
+        });
+
+        // Content dropdown functionality
+        const contentDropdown = document.getElementById('contentDropdown');
+        const contentSubmenu = document.getElementById('contentSubmenu');
+        const dropdownArrow = document.getElementById('dropdownArrow');
+        
+        if (contentDropdown && contentSubmenu && dropdownArrow) {
+            contentDropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isHidden = contentSubmenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    contentSubmenu.classList.remove('hidden');
+                    dropdownArrow.style.transform = 'rotate(180deg)';
+                } else {
+                    contentSubmenu.classList.add('hidden');
+                    dropdownArrow.style.transform = 'rotate(0deg)';
                 }
             });
 
-            // Content dropdown functionality
-            const contentDropdown = document.getElementById('contentDropdown');
-            const contentSubmenu = document.getElementById('contentSubmenu');
-            const dropdownArrow = document.getElementById('dropdownArrow');
-            
-            if (contentDropdown && contentSubmenu && dropdownArrow) {
-                contentDropdown.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const isHidden = contentSubmenu.classList.contains('hidden');
-                    
-                    if (isHidden) {
-                        contentSubmenu.classList.remove('hidden');
-                        dropdownArrow.style.transform = 'rotate(180deg)';
-                    } else {
-                        contentSubmenu.classList.add('hidden');
-                        dropdownArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
-
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!contentDropdown.contains(e.target) && !contentSubmenu.contains(e.target)) {
-                        contentSubmenu.classList.add('hidden');
-                        dropdownArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
-            }
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contentDropdown.contains(e.target) && !contentSubmenu.contains(e.target)) {
+                    contentSubmenu.classList.add('hidden');
+                    dropdownArrow.style.transform = 'rotate(0deg)';
+                }
+            });
         });
 
         // Close terminal when clicking outside
