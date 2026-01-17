@@ -600,36 +600,36 @@
                 item.classList.remove('text-terminal-green', 'text-terminal-blue', 'text-terminal-amber');
                 item.classList.add('text-gray-400');
             });
-        });
+            
+            // Content dropdown functionality
+            const contentDropdown = document.getElementById('contentDropdown');
+            const contentSubmenu = document.getElementById('contentSubmenu');
+            const dropdownArrow = document.getElementById('dropdownArrow');
+            
+            if (contentDropdown && contentSubmenu && dropdownArrow) {
+                contentDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isHidden = contentSubmenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        contentSubmenu.classList.remove('hidden');
+                        dropdownArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        contentSubmenu.classList.add('hidden');
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
 
-        // Content dropdown functionality
-        const contentDropdown = document.getElementById('contentDropdown');
-        const contentSubmenu = document.getElementById('contentSubmenu');
-        const dropdownArrow = document.getElementById('dropdownArrow');
-        
-        if (contentDropdown && contentSubmenu && dropdownArrow) {
-            contentDropdown.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const isHidden = contentSubmenu.classList.contains('hidden');
-                
-                if (isHidden) {
-                    contentSubmenu.classList.remove('hidden');
-                    dropdownArrow.style.transform = 'rotate(180deg)';
-                } else {
-                    contentSubmenu.classList.add('hidden');
-                    dropdownArrow.style.transform = 'rotate(0deg)';
-                }
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!contentDropdown.contains(e.target) && !contentSubmenu.contains(e.target)) {
-                    contentSubmenu.classList.add('hidden');
-                    dropdownArrow.style.transform = 'rotate(0deg)';
-                }
-            });
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!contentDropdown.contains(e.target) && !contentSubmenu.contains(e.target)) {
+                        contentSubmenu.classList.add('hidden');
+                        dropdownArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
         });
 
         // Close terminal when clicking outside
