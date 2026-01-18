@@ -209,9 +209,9 @@
                             <p class="text-lg mb-4">Week 3 quiz is now <strong class="text-terminal-green">live</strong>!</p>
                             <p class="text-lg mb-4">Test your knowledge on Financial Markets, Equity Markets, and Market Participants.</p>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <a href="https://forms.gle/9FFoKT88U4dAydgk8" target="_blank" class="px-6 py-2 border border-terminal-green rounded-md text-terminal-green hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
-                                    GO TO QUIZ
-                                </a>
+                                <button id="highlightWeek3Btn" class="px-6 py-2 border border-terminal-amber rounded-md text-terminal-amber hover:bg-terminal-amber hover:bg-opacity-10 transition-colors text-sm">
+                                    GO TO WEEK 3
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -567,13 +567,23 @@
             }
         }
 
-        // Add click event to highlight button
-        document.addEventListener('DOMContentLoaded', () => {
-            const highlightBtn = document.getElementById('highlightWeek2Btn');
-            if (highlightBtn) {
-                highlightBtn.addEventListener('click', () => highlightQuiz(2));
+        // Highlight Week 3 function
+        function highlightWeek3() {
+            const week3Element = document.getElementById('week3Quiz');
+            if (week3Element) {
+                week3Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                week3Element.style.borderColor = '#ffaa00';
+                week3Element.style.boxShadow = '0 0 20px rgba(255, 170, 0, 0.5)';
+                week3Element.style.transform = 'scale(1.02)';
+                week3Element.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    week3Element.style.borderColor = '';
+                    week3Element.style.boxShadow = '';
+                    week3Element.style.transform = '';
+                }, 3000);
             }
-        });
+        }
 
         // Update time
         function updateTime() {
@@ -596,10 +606,28 @@
         // Highlight active page and initialize dropdown
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Highlight active page
             document.querySelectorAll('.terminal-tab').forEach(item => {
-                item.classList.remove('text-terminal-green', 'text-terminal-blue', 'text-terminal-amber');
-                item.classList.add('text-gray-400');
+                if (item.getAttribute('href') === currentPage) {
+                    item.classList.add('bg-terminal-bg-light', 'border-terminal-green', 'border-opacity-50', 'text-terminal-green');
+                    item.classList.remove('text-gray-400', 'border-transparent');
+                    
+                    // Update status to active
+                    const statusElement = item.querySelector('.text-xs:last-child');
+                    if (statusElement && !statusElement.textContent.includes('ACTIVE')) {
+                        statusElement.textContent = '● ACTIVE';
+                        statusElement.classList.add('terminal-green');
+                        statusElement.classList.remove('text-gray-500');
+                    }
+                }
             });
+            
+            // Add event listener for Week 3 highlight button
+            const highlightWeek3Btn = document.getElementById('highlightWeek3Btn');
+            if (highlightWeek3Btn) {
+                highlightWeek3Btn.addEventListener('click', highlightWeek3);
+            }
             
             // Content dropdown functionality
             const contentDropdown = document.getElementById('contentDropdown');
