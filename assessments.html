@@ -204,14 +204,14 @@
                     <h2 class="text-2xl font-bold mb-6 terminal-text">Case Studies & Assessments</h2>
                     
                     <div class="mb-8">
-                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-amber border-opacity-20">
-                            <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 3 content is now <strong class="text-terminal-amber">LIVE</strong>!</p>
-                            <p class="text-lg mb-4">Financial Markets & Equity Analysis case studies and assessments are now available.</p>
+                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
+                            <h3 class="text-xl font-bold mb-4 text-terminal-green">Important Notice</h3>
+                            <p class="text-lg mb-4">Week 4 content is now <strong class="text-terminal-green">LIVE</strong>!</p>
+                            <p class="text-lg mb-4">Commodities & Currencies case studies and assessments are now available.</p>
                             <p class="text-lg mb-4">Explore comprehensive learning materials including videos, case studies, and additional resources.</p>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <button onclick="highlightWeek3()" class="px-6 py-2 bg-terminal-amber text-black font-bold rounded hover:bg-terminal-amber hover:bg-opacity-80 transition-colors">Go to Week 3</button>
-                                <a href="weeks/week3.html" class="px-6 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-white">View Full Week</a>
+                                <button onclick="highlightWeek4()" class="px-6 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors">Go to Week 4</button>
+                                <a href="weeks/week4.html" class="px-6 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-white">View Full Week</a>
                             </div>
                         </div>
                     </div>
@@ -262,11 +262,19 @@
                             </div>
                         </div>
 
-                        <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
+                        <div id="week4CaseStudy" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green">
                             <h3 class="text-lg font-bold mb-2 text-terminal-green">Week 4 Case Study</h3>
                             <p class="text-sm text-gray-400">January 24-25, 2026</p>
                             <p class="text-sm mt-2">Topic: Commodities, Currencies & Corporate Financing</p>
-                            <p class="text-xs text-gray-500 mt-2">Available when bootcamp begins</p>
+                            <p class="text-xs text-terminal-green mt-2 font-bold">✓ AVAILABLE NOW</p>
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                                <a href="weeks/week4.html#case-study" class="px-4 py-2 border border-terminal-green rounded hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
+                                    View Case Studies
+                                </a>
+                                <a href="weeks/week4.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
+                                    Full Week 4
+                                </a>
+                            </div>
                         </div>
 
                         <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
@@ -670,6 +678,22 @@
             setTimeout(() => {
                 week3Element.style.borderColor = '';
                 week3Element.style.boxShadow = '';
+            }, 3000);
+        }
+
+        // Highlight Week 4 function
+        function highlightWeek4() {
+            const week4Element = document.getElementById('week4CaseStudy');
+            week4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            week4Element.style.borderColor = '#00ff41';
+            week4Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
+            week4Element.style.transform = 'scale(1.02)';
+            week4Element.style.transition = 'all 0.3s ease';
+            
+            setTimeout(() => {
+                week4Element.style.borderColor = '';
+                week4Element.style.boxShadow = '';
+                week4Element.style.transform = '';
             }, 3000);
         }
     </script>
