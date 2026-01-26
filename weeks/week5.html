@@ -759,15 +759,16 @@
                 </div>
 
                 <!-- Completion Notice -->
-                <div class="card p-6 rounded-lg bg-terminal-bg border border-terminal-gold border-opacity-30">
+                <div class="card p-10 rounded-lg bg-terminal-bg border border-terminal-gold border-opacity-30">
                     <div class="text-center">
-                        <div class="flex items-center justify-center mb-4">
-                            <div class="w-16 h-16 bg-terminal-gold bg-opacity-20 rounded-full flex items-center justify-center">
-                                <span class="text-terminal-gold text-2xl font-bold">🎉</span>
+                        <div class="flex items-center justify-center mb-5">
+                            <div class="w-20 h-20 bg-terminal-gold bg-opacity-10 rounded-full flex items-center justify-center">
+                                <span class="text-terminal-gold text-3xl font-bold">🎉</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-terminal-gold mb-3">Congratulations on Completing Week 5!</h3>
-                        <p class="text-gray-300 mb-4">You've reached the final week of the Winter Finance Bootcamp. Complete these bonus activities to enhance your practical skills and finish strong!</p>
+                        <h3 class="text-2xl font-bold text-terminal-gold mb-4">Congratulations on Completing Week 5!</h3>
+                        <p class="text-gray-300 mb-5 max-w-2xl mx-auto">You've reached the final week of the Winter Finance Bootcamp. Complete these bonus activities to enhance your practical skills and finish strong!</p>
+                        
                         <div class="flex items-center justify-center text-sm text-gray-400">
                             <span class="mr-2">📅</span>
                             <span>Final Week Activities • Complete by Bootcamp End</span>
@@ -795,8 +796,9 @@
                     <a href="../quizzes.html" class="px-6 py-3 border border-terminal-amber rounded-md hover:bg-terminal-amber hover:bg-opacity-10 transition-colors">
                         Quizzes
                     </a>
-                    <a href="#" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors opacity-50 cursor-not-allowed">
-                        Next Week →
+                    <a href="#" onclick="event.preventDefault(); alert('🎊 We have come to the end of the bootcamp! Hope you had fun and learned a lot. Thank you for being an amazing participant! 🎓'); return false;" class="px-6 py-3 border border-terminal-gold rounded-md hover:bg-terminal-gold hover:bg-opacity-20 transition-all duration-300 text-terminal-gold hover:text-black font-bold cursor-pointer group">
+                        <span class="group-hover:animate-bounce inline-block">🎓</span>
+                        <span class="ml-2">Bootcamp Complete!</span>
                     </a>
                 </div>
             </div>
