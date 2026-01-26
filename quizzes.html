@@ -204,13 +204,13 @@
                     <h2 class="text-2xl font-bold mb-6 terminal-text">Quiz Schedule</h2>
                     
                     <div class="mb-8">
-                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
-                            <h3 class="text-xl font-bold mb-4 text-terminal-green">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 4 quiz is <strong class="text-terminal-green">LIVE</strong>!</p>
-                            <p class="text-lg mb-4">Test your knowledge on Commodities & Currencies, Derivatives, and Forex Trading concepts.</p>
+                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-amber border-opacity-20">
+                            <h3 class="text-xl font-bold mb-4 text-terminal-amber">Important Notice</h3>
+                            <p class="text-lg mb-4">Week 5 quiz is <strong class="text-terminal-amber">coming soon</strong>!</p>
+                            <p class="text-lg mb-4">Test your knowledge on Business Models, FinTech, and Financial Modeling concepts.</p>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <button id="highlightWeek4Btn" class="px-6 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors text-sm">
-                                    GO TO QUIZ
+                                <button id="highlightWeek5Btn" class="px-6 py-2 bg-terminal-amber text-black font-bold rounded hover:bg-terminal-amber hover:bg-opacity-80 transition-colors text-sm">
+                                    VIEW QUIZ
                                 </button>
                             </div>
                         </div>
@@ -280,21 +280,21 @@
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-lg font-bold text-terminal-green">Week 4 Quiz</h3>
                                 <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse mr-2"></div>
-                                    <span class="text-terminal-green text-sm font-bold">LIVE NOW</span>
+                                    <div class="w-2 h-2 bg-terminal-red rounded-full mr-2"></div>
+                                    <span class="text-terminal-red text-sm font-bold">DEADLINE PASSED</span>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-400">January 25-26, 2026</p>
                             <p class="text-sm mt-2">Topics: Commodities & Currencies, Derivatives, Forex Trading</p>
-                            <div class="bg-terminal-bg-light rounded border border-terminal-green border-opacity-50 p-3 my-3">
+                            <div class="bg-terminal-bg-light rounded border border-terminal-red border-opacity-50 p-3 my-3">
                                 <div class="text-center">
-                                    <div class="text-terminal-green font-bold text-sm mb-1">DEADLINE</div>
-                                    <div class="text-terminal-green font-bold text-sm">JANUARY 26, 2026 - 11:59 PM (EOD)</div>
+                                    <div class="text-terminal-red font-bold text-sm mb-1">DEADLINE</div>
+                                    <div class="text-terminal-red font-bold text-sm">JANUARY 26, 2026 - 11:59 PM (CLOSED)</div>
                                 </div>
                             </div>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <a href="https://forms.gle/cQGTVa55HrQrXqiu7" target="_blank" class="px-4 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors text-sm">
-                                    Attempt Quiz Now
+                                <a href="https://forms.gle/cQGTVa55HrQrXqiu7" target="_blank" class="px-4 py-2 border border-terminal-red rounded hover:bg-terminal-red hover:bg-opacity-10 transition-colors text-sm text-terminal-red">
+                                    Quiz Closed
                                 </a>
                                 <a href="weeks/week4.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
                                     View Week 4
@@ -303,9 +303,29 @@
                         </div>
 
                         <div id="week5Quiz" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green">
-                            <h3 class="text-terminal-green font-bold mb-2">Week 5 Quiz Window</h3>
-                            <p>February 1-2, 2026</p>
-                            <p class="text-sm text-gray-400">Topics: Business Models in Finance, FinTech, Financial Modeling</p>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-terminal-green">Week 5 Quiz</h3>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-terminal-amber rounded-full mr-2"></div>
+                                    <span class="text-terminal-amber text-sm font-bold">COMING SOON</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-400">February 1-2, 2026</p>
+                            <p class="text-sm mt-2">Topics: Business Models in Finance, FinTech, Financial Modeling</p>
+                            <div class="bg-terminal-bg-light rounded border border-terminal-amber border-opacity-50 p-3 my-3">
+                                <div class="text-center">
+                                    <div class="text-terminal-amber font-bold text-sm mb-1">DEADLINE</div>
+                                    <div class="text-terminal-amber font-bold text-sm">FEBRUARY 2, 2026 - 12:00 PM</div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                                <a href="#" class="px-4 py-2 border border-terminal-amber rounded hover:bg-terminal-amber hover:bg-opacity-10 transition-colors text-sm text-terminal-amber">
+                                    Coming Soon
+                                </a>
+                                <a href="weeks/week5.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
+                                    View Week 5
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -620,20 +640,20 @@
             }
         }
 
-        // Highlight Week 4 function
-        function highlightWeek4() {
-            const week4Element = document.getElementById('week4Quiz');
-            if (week4Element) {
-                week4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                week4Element.style.borderColor = '#00ff41';
-                week4Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
-                week4Element.style.transform = 'scale(1.02)';
-                week4Element.style.transition = 'all 0.3s ease';
+        // Highlight Week 5 function
+        function highlightWeek5() {
+            const week5Element = document.getElementById('week5Quiz');
+            if (week5Element) {
+                week5Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                week5Element.style.borderColor = '#00ff41';
+                week5Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
+                week5Element.style.transform = 'scale(1.02)';
+                week5Element.style.transition = 'all 0.3s ease';
                 
                 setTimeout(() => {
-                    week4Element.style.borderColor = '';
-                    week4Element.style.boxShadow = '';
-                    week4Element.style.transform = '';
+                    week5Element.style.borderColor = '';
+                    week5Element.style.boxShadow = '';
+                    week5Element.style.transform = '';
                 }, 3000);
             }
         }
@@ -682,10 +702,10 @@
                 highlightWeek3Btn.addEventListener('click', highlightWeek3);
             }
             
-            // Add event listener for Week 4 highlight button
-            const highlightWeek4Btn = document.getElementById('highlightWeek4Btn');
-            if (highlightWeek4Btn) {
-                highlightWeek4Btn.addEventListener('click', highlightWeek4);
+            // Add event listener for Week 5 highlight button
+            const highlightWeek5Btn = document.getElementById('highlightWeek5Btn');
+            if (highlightWeek5Btn) {
+                highlightWeek5Btn.addEventListener('click', highlightWeek5);
             }
             
             // Content dropdown functionality
