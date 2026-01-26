@@ -204,14 +204,16 @@
                     <h2 class="text-2xl font-bold mb-6 terminal-text">Case Studies & Assessments</h2>
                     
                     <div class="mb-8">
-                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-20">
-                            <h3 class="text-xl font-bold mb-4 text-terminal-green">Important Notice</h3>
-                            <p class="text-lg mb-4">Week 4 content is now <strong class="text-terminal-green">LIVE</strong>!</p>
-                            <p class="text-lg mb-4">Commodities & Currencies case studies and assessments are now available.</p>
-                            <p class="text-lg mb-4">Explore comprehensive learning materials including videos, case studies, and additional resources.</p>
+                        <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-gold border-opacity-20">
+                            <h3 class="text-xl font-bold mb-4 text-terminal-gold">Important Notice</h3>
+                            <p class="text-lg mb-4">Week 5 content is now <strong class="text-terminal-gold">LIVE</strong>!</p>
+                            <p class="text-lg mb-4">FinTech Business Models & Financial Modeling case studies and assessments are now available.</p>
+                            <p class="text-lg mb-4">Since this is the final week, we have included a few hands-on activities to enhance your practical skills.</p>
+                            <p class="text-lg mb-4">Explore comprehensive learning materials including videos, case studies, and hands-on activities.</p>
                             <div class="mt-4 flex flex-col sm:flex-row gap-2">
-                                <button onclick="highlightWeek4()" class="px-6 py-2 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors">Go to Week 4</button>
-                                <a href="weeks/week4.html" class="px-6 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-white">View Full Week</a>
+                                <button onclick="highlightWeek5()" class="px-6 py-2 bg-terminal-gold text-black font-bold rounded hover:bg-terminal-gold hover:bg-opacity-80 transition-colors">Go to Week 5</button>
+                                <a href="weeks/week5.html" class="px-6 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-white">View Full Week</a>
+                                <a href="weeks/week5.html#bonus-activities" class="px-6 py-2 border border-terminal-gold rounded hover:bg-terminal-gold hover:bg-opacity-20 transition-colors text-terminal-gold hover:text-black font-bold">Hands-On Activities</a>
                             </div>
                         </div>
                     </div>
@@ -277,11 +279,22 @@
                             </div>
                         </div>
 
-                        <div class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4">
+                        <div id="week5CaseStudy" class="case-study-card border border-terminal-green border-opacity-20 rounded-lg p-4 transition-all duration-300 hover:border-terminal-green">
                             <h3 class="text-lg font-bold mb-2 text-terminal-green">Week 5 Case Study</h3>
                             <p class="text-sm text-gray-400">January 31-February 1, 2026</p>
                             <p class="text-sm mt-2">Topic: FinTech Business Models & Financial Modeling</p>
-                            <p class="text-xs text-gray-500 mt-2">Available when bootcamp begins</p>
+                            <p class="text-xs text-terminal-green mt-2 font-bold">✓ AVAILABLE NOW</p>
+                            <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                                <a href="weeks/week5.html#case-study" class="px-4 py-2 border border-terminal-green rounded hover:bg-terminal-green hover:bg-opacity-10 transition-colors text-sm">
+                                    View Case Studies
+                                </a>
+                                <a href="weeks/week5.html" class="px-4 py-2 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-10 transition-colors text-sm">
+                                    Full Week 5
+                                </a>
+                                <a href="weeks/week5.html#bonus-activities" class="px-4 py-2 border border-terminal-gold rounded hover:bg-terminal-gold hover:bg-opacity-20 transition-colors text-terminal-gold hover:text-black font-bold text-sm">
+                                    Hands-On Activities
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -689,19 +702,19 @@
             }, 3000);
         }
 
-        // Highlight Week 4 function
-        function highlightWeek4() {
-            const week4Element = document.getElementById('week4CaseStudy');
-            week4Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            week4Element.style.borderColor = '#00ff41';
-            week4Element.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.5)';
-            week4Element.style.transform = 'scale(1.02)';
-            week4Element.style.transition = 'all 0.3s ease';
+        // Highlight Week 5 function
+        function highlightWeek5() {
+            const week5Element = document.getElementById('week5CaseStudy');
+            week5Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            week5Element.style.borderColor = '#ffd700';
+            week5Element.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.5)';
+            week5Element.style.transform = 'scale(1.02)';
+            week5Element.style.transition = 'all 0.3s ease';
             
             setTimeout(() => {
-                week4Element.style.borderColor = '';
-                week4Element.style.boxShadow = '';
-                week4Element.style.transform = '';
+                week5Element.style.borderColor = '';
+                week5Element.style.boxShadow = '';
+                week5Element.style.transform = '';
             }, 3000);
         }
     </script>
