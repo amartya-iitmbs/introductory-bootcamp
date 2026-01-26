@@ -3,241 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 5 - Business Models & FinTech | Finance Bootcamp</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Week 5 | Winter Finance Bootcamp | Amartya Finance Society - IITMBS</title>
+    <meta name="description" content="Week 5 of Winter Finance Bootcamp - Business Models & FinTech. Learn about business models, financial modeling, and FinTech innovation.">
+    <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'terminal-green': '#00ff41',
-                        'terminal-amber': '#ffaa00',
                         'terminal-red': '#ff0040',
+                        'terminal-amber': '#ffaa00',
                         'terminal-blue': '#00d4ff',
                         'terminal-gold': '#ffd700',
                         'terminal-bg': '#0a0e27',
-                        'terminal-bg-light': '#1a1a2e'
+                        'terminal-bg-light': '#1a1a2e',
                     },
                     fontFamily: {
-                        'terminal': ['JetBrains Mono', 'Space Mono', 'monospace'],
-                        'heading': ['Space Mono', 'monospace']
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'heading': ['Space Mono', 'monospace'],
                     },
                     animation: {
-                        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'float': 'float 3s ease-in-out infinite',
-                        'slide': 'slide 20s linear infinite',
-                        'typing': 'typing 3s steps(40, end) infinite'
+                        'blink': 'blink 1s step-end infinite',
+                        'ticker': 'ticker 30s linear infinite',
                     },
                     keyframes: {
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(0, 255, 65, 0.5)' },
-                            '100%': { boxShadow: '0 0 30px rgba(0, 255, 65, 0.8)' }
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' }
                         },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        slide: {
-                            '0%': { transform: 'translateX(100%)' },
-                            '100%': { transform: 'translateX(-100%)' }
-                        },
-                        typing: {
-                            '0%': { width: '0%' },
-                            '100%': { width: '100%' }
+                        ticker: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
                         }
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
     <style>
         body {
-            font-family: 'JetBrains Mono', monospace;
             background-color: #0a0e27;
-            color: #ffffff;
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: hidden;
         }
-        
         .terminal-text {
-            font-family: 'Space Mono', monospace;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            color: #00ff41;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
         }
-        
+        .ticker-container {
+            white-space: nowrap;
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            margin: 0 3rem;
+            color: #00ff41;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0, 255, 65, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 3px rgba(0, 255, 65, 0.8); }
+            to { text-shadow: 0 0 8px rgba(0, 255, 65, 1), 0 0 12px rgba(0, 255, 65, 0.6); }
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
         .card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(10, 14, 39, 0.9));
+            background: rgba(10, 14, 39, 0.7);
             border: 1px solid rgba(0, 255, 65, 0.2);
-            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
-        
         .card:hover {
-            border-color: rgba(0, 255, 65, 0.5);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.1);
+            border-color: #00ff41;
         }
-        
-        .shadow-terminal-glow {
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
-        }
-        
-        .animate-slide {
-            animation: slide 20s linear infinite;
-        }
-        
-        .ticker-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        
-        .video-thumbnail {
+        .video-container {
             position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
             overflow: hidden;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 65, 0.3);
         }
-        
-        .video-thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
-        }
-        
-        .video-thumbnail::before {
-            content: '';
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-        
-        .video-thumbnail:hover::before {
-            transform: translateX(100%);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #00ff41;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
             width: 100%;
+            height: 100%;
+            border: none;
         }
-        
-        .terminal-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: #00ff41;
-            animation: blink 1s infinite;
+        .chart-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
         }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .chart-line {
+            stroke: #00ff41;
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 3px rgba(0, 255, 65, 0.5));
+            animation: drawLine 3s ease-in-out infinite alternate;
         }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #00ff41, #00d4ff, #ffaa00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .chart-area {
+            fill: url(#chartGradient);
+            opacity: 0.3;
+            animation: fadeInOut 4s ease-in-out infinite;
         }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
+        @keyframes drawLine {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
         }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
-<body class="bg-terminal-bg text-white">
-    <!-- Header with Ticker -->
-    <header class="bg-terminal-bg border-b border-terminal-green border-opacity-30 sticky top-0 z-50 backdrop-blur-lg">
-        <!-- Stock Ticker -->
-        <div class="bg-terminal-bg border-b border-terminal-green border-opacity-20">
-            <div class="ticker-container">
-                <div class="animate-slide py-2 text-sm text-terminal-green">
-                    <span class="mx-8">BUS101: <span class="text-terminal-amber">+2.8%</span></span>
-                    <span class="mx-8">FINTECH: <span class="text-terminal-blue">+5.2%</span></span>
-                    <span class="mx-8">MODEL: <span class="text-terminal-gold">+1.5%</span></span>
-                    <span class="mx-8">STARTUP: <span class="text-terminal-green">+3.7%</span></span>
-                    <span class="mx-8">BOOTCAMP: <span class="text-terminal-amber">ACTIVE</span></span>
-                    <span class="mx-8">WEEK5: <span class="text-terminal-blue">LIVE</span></span>
-                </div>
-            </div>
+<body class="min-h-screen">
+    <!-- Ticker -->
+    <div class="bg-black py-2 overflow-hidden sticky top-0 z-50 border-b border-terminal-green border-opacity-20">
+        <div class="ticker-container">
+            <span class="ticker-item">WEEK5 ↑BUSINESS</span>
+            <span class="ticker-item">BUS101 ↑2.8%</span>
+            <span class="ticker-item">FINTECH ↑5.2%</span>
+            <span class="ticker-item">MODEL ↑1.5%</span>
+            <span class="ticker-item">STARTUP ↑3.7%</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ticker-item">WEEK5 ↑BUSINESS</span>
+            <span class="ticker-item">BUS101 ↑2.8%</span>
+            <span class="ticker-item">FINTECH ↑5.2%</span>
+            <span class="ticker-item">MODEL ↑1.5%</span>
+            <span class="ticker-item">STARTUP ↑3.7%</span>
         </div>
-        
-        <!-- Navigation -->
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-chart-line text-terminal-green text-2xl"></i>
-                    <span class="terminal-text font-bold text-xl">FINANCE BOOTCAMP</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="../index.html" class="nav-link text-gray-300 hover:text-terminal-green transition-colors">Home</a>
-                    <a href="../quizzes.html" class="nav-link text-gray-300 hover:text-terminal-green transition-colors">Quizzes</a>
-                    <a href="../assessments.html" class="nav-link text-gray-300 hover:text-terminal-green transition-colors">Assessments</a>
-                    <a href="#resources" class="nav-link text-gray-300 hover:text-terminal-green transition-colors">Resources</a>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <span class="text-xs text-gray-500">WEEK 5</span>
-                    <div class="w-2 h-2 bg-terminal-green rounded-full animate-pulse"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    </div>
 
     <!-- Hero Section -->
-    <section class="py-20 bg-terminal-bg relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-10 left-10 w-64 h-64 border border-terminal-green rounded-full animate-pulse"></div>
-            <div class="absolute bottom-10 right-10 w-96 h-96 border border-terminal-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 left-1/3 w-48 h-48 border border-terminal-amber rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+    <header class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        
+        <!-- Animated Chart Background -->
+        <div class="chart-background">
+            <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00ff41;stop-opacity:0.6" />
+                        <stop offset="100%" style="stop-color:#00ff41;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Chart Area -->
+                <path class="chart-area" d="M 0,400 Q 200,350 400,300 T 800,250 Q 1000,200 1200,150 L 1200,600 L 0,600 Z" />
+                
+                <!-- Chart Line -->
+                <path class="chart-line" d="M 0,400 Q 200,350 400,300 T 800,250 Q 1000,200 1200,150" 
+                      stroke-dasharray="1000" stroke-dashoffset="1000" />
+                
+                <!-- Additional decorative lines -->
+                <path class="chart-line" d="M 0,450 L 1200,450" 
+                      stroke-dasharray="1000" stroke-dashoffset="1000" 
+                      style="animation-delay: 0.5s; opacity: 0.3;" />
+                <path class="chart-line" d="M 0,500 L 1200,500" 
+                      stroke-dasharray="1000" stroke-dashoffset="1000" 
+                      style="animation-delay: 1s; opacity: 0.3;" />
+                <path class="chart-line" d="M 0,550 L 1200,550" 
+                      stroke-dasharray="1000" stroke-dashoffset="1000" 
+                      style="animation-delay: 1.5s; opacity: 0.3;" />
+            </svg>
         </div>
         
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center">
-                <div class="mb-6">
-                    <span class="text-terminal-amber text-sm font-bold tracking-wider">WEEK 5</span>
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
+            <div class="max-w-4xl mx-auto text-center hero-content">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 terminal-text font-heading">WEEK 5</h1>
+                <p class="text-xl md:text-2xl mb-8 text-terminal-blue">BUSINESS MODELS & FINTECH</p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Explore modern business models, financial modeling fundamentals, and the revolutionary impact of FinTech on traditional finance.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#case-study" class="px-8 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors">VIEW CASE STUDIES</a>
+                    <a href="#additional-resources" class="px-8 py-3 border border-terminal-red rounded-md hover:bg-terminal-red hover:bg-opacity-10 transition-colors">VIEW RESOURCES</a>
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 terminal-text">
-                    BUSINESS MODELS &<br>
-                    <span class="gradient-text">FINTECH INNOVATION</span>
-                </h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    Explore modern business models, financial modeling fundamentals, and the revolutionary impact of FinTech on traditional finance.
-                </p>
                 
-                <!-- Statistics -->
-                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-8">
+                <!-- Week Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-16">
                     <div class="text-center">
                         <div class="text-3xl font-bold terminal-text">3</div>
                         <div class="text-sm uppercase tracking-wider">Videos</div>
@@ -247,76 +215,325 @@
                         <div class="text-sm uppercase tracking-wider">Case Studies</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold terminal-text">5</div>
-                        <div class="text-sm uppercase tracking-wider">Resources</div>
+                        <div class="text-3xl font-bold terminal-text">∞</div>
+                        <div class="text-sm uppercase tracking-wider">Learning</div>
                     </div>
-                </div>
-                
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#videos" class="px-8 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center group">
-                        <span class="mr-2 group-hover:translate-x-1 transition-transform">→</span>
-                        Start Learning
-                    </a>
-                    <a href="#quiz" class="px-8 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center group">
-                        <span class="mr-2 group-hover:translate-x-1 transition-transform">→</span>
-                        View Quiz Info
-                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Video Content Section -->
     <section id="videos" class="py-16 bg-terminal-bg-light">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center terminal-text">VIDEO CONTENT</h2>
             
-            <div class="max-w-6xl mx-auto space-y-8">
+            <div class="max-w-4xl mx-auto space-y-12">
                 <!-- Video 1 -->
                 <div class="card p-6 rounded-lg">
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="video-thumbnail">
+                    <div class="flex items-center mb-4">
+                        <span class="terminal-text font-bold text-xl mr-2">01</span>
+                        <span class="text-xs bg-terminal-green bg-opacity-20 text-terminal-green px-2 py-1 rounded">FOUNDATION</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 terminal-text">What is a Business Model</h3>
+                    <div class="video-thumbnail">
+                        <a href="https://youtu.be/_C-vGu2mL38?si=cMQK7s4xq3MFeyg8" target="_blank" rel="noopener noreferrer" class="block relative group">
                             <img src="https://img.youtube.com/vi/_C-vGu2mL38/maxresdefault.jpg" 
                                  alt="What is a Business Model" 
-                                 class="w-full rounded-lg shadow-lg">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <a href="https://youtu.be/_C-vGu2mL38?si=cMQK7s4xq3MFeyg8" 
-                                   target="_blank" 
-                                   class="bg-terminal-green bg-opacity-90 text-black p-4 rounded-full hover:bg-terminal-green transition-all duration-300 transform hover:scale-110">
-                                    <i class="fas fa-play text-xl"></i>
-                                </a>
+                                 class="w-full rounded-lg border border-terminal-green border-opacity-30">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="text-center">
+                                    <div class="text-terminal-green text-4xl mb-2">▶</div>
+                                    <p class="text-white text-sm">Click to watch on YouTube</p>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex items-center mb-4">
-                                <span class="terminal-text font-bold text-xl mr-2">01</span>
-                                <span class="text-xs bg-terminal-green bg-opacity-20 text-terminal-green px-2 py-1 rounded">FOUNDATION</span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4 terminal-text">What is a Business Model</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">
-                                Understanding the fundamental concepts of business models, how companies create value, and the key components that make up successful business strategies in the modern economy.
-                            </p>
-                            <div class="flex items-center text-sm text-gray-400 mb-4">
-                                <i class="fas fa-clock mr-2"></i>
-                                <span>Duration: 15 minutes</span>
-                            </div>
-                            <a href="https://youtu.be/_C-vGu2mL38?si=cMQK7s4xq3MFeyg8" 
-                               target="_blank" 
-                               class="inline-flex items-center px-6 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green hover:bg-opacity-80 transition-colors">
-                                <i class="fas fa-play mr-2"></i>
-                                Watch Now
-                            </a>
-                        </div>
+                        </a>
+                    </div>
+                    <div class="mt-4 p-4 bg-terminal-bg rounded-lg border border-terminal-green border-opacity-20">
+                        <p class="text-sm text-gray-300">Understanding the fundamental concepts of business models, how companies create value, and the key components that make up successful business strategies in the modern economy.</p>
                     </div>
                 </div>
 
                 <!-- Video 2 -->
                 <div class="card p-6 rounded-lg">
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="video-thumbnail order-2 md:order-1">
+                    <div class="flex items-center mb-4">
+                        <span class="terminal-text font-bold text-xl mr-2">02</span>
+                        <span class="text-xs bg-terminal-blue bg-opacity-20 text-terminal-blue px-2 py-1 rounded">TECHNICAL</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 terminal-text">Financial Modeling 101</h3>
+                    <div class="video-thumbnail">
+                        <a href="https://youtu.be/AYzkfkeE-8?si=Rz3xganyTXF7jkGo" target="_blank" rel="noopener noreferrer" class="block relative group">
                             <img src="https://img.youtube.com/vi/AYzkfkeE-8/maxresdefault.jpg" 
+                                 alt="Financial Modeling 101" 
+                                 class="w-full rounded-lg border border-terminal-blue border-opacity-30">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="text-center">
+                                    <div class="text-terminal-blue text-4xl mb-2">▶</div>
+                                    <p class="text-white text-sm">Click to watch on YouTube</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt-4 p-4 bg-terminal-bg rounded-lg border border-terminal-blue border-opacity-20">
+                        <p class="text-sm text-gray-300">Introduction to financial modeling techniques, building spreadsheets, forecasting methods, and creating models that support business decisions and investment analysis.</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="terminal-text font-bold text-xl mr-2">03</span>
+                        <span class="text-xs bg-terminal-amber bg-opacity-20 text-terminal-amber px-2 py-1 rounded">INNOVATION</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 terminal-text">Intro to FinTech</h3>
+                    <div class="video-thumbnail">
+                        <a href="https://youtu.be/GDQF4ea6FBs?si=VjCthuqjae_q5b3y" target="_blank" rel="noopener noreferrer" class="block relative group">
+                            <img src="https://img.youtube.com/vi/GDQF4ea6FBs/maxresdefault.jpg" 
+                                 alt="Intro to FinTech" 
+                                 class="w-full rounded-lg border border-terminal-amber border-opacity-30">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div class="text-center">
+                                    <div class="text-terminal-amber text-4xl mb-2">▶</div>
+                                    <p class="text-white text-sm">Click to watch on YouTube</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt-4 p-4 bg-terminal-bg rounded-lg border border-terminal-amber border-opacity-20">
+                        <p class="text-sm text-gray-300">Explore the revolutionary world of Financial Technology, from digital payments to blockchain, and understand how FinTech is reshaping the financial services industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Information Section -->
+    <section id="quiz" class="py-16 bg-terminal-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center terminal-text">QUIZ INFORMATION</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="card p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-terminal-amber bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-terminal-amber text-xl font-bold">!</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-terminal-amber">Week 5 Quiz Notice</h3>
+                            <p class="text-sm text-gray-400">Quiz Schedule</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-terminal-bg-light p-6 rounded-lg border border-terminal-green border-opacity-30">
+                        <p class="text-lg mb-4">The <strong class="text-terminal-amber">Week 5 quiz</strong> is <strong class="text-terminal-amber">coming soon</strong>!</p>
+                        <p class="text-lg mb-4">Quiz will cover topics from Business Models, Financial Modeling, and FinTech concepts.</p>
+                        <p class="text-lg mb-2"><strong class="text-terminal-amber">Deadline:</strong> February 2, 2026 - 12:00 PM</p>
+                    </div>
+                    
+                    <div class="mt-6 flex justify-center">
+                        <a href="../quizzes.html" class="px-8 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
+                            View Quiz Schedule
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section id="case-study" class="py-16 bg-terminal-bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center terminal-text">CASE STUDIES</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Mini Case Study -->
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="terminal-text font-bold text-xl mr-2">01</span>
+                        <span class="text-xs bg-terminal-green bg-opacity-20 text-terminal-green px-2 py-1 rounded">MINI CASE STUDY</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 terminal-text">Week 5 Mini Case Study</h3>
+                    
+                    <div class="bg-terminal-bg rounded-lg border border-terminal-green border-opacity-30 overflow-hidden">
+                        <div class="p-4 border-b border-terminal-green border-opacity-20">
+                            <p class="text-sm text-gray-300 mb-2">Analysis of modern FinTech startups and their disruptive business models in the financial services sector.</p>
+                            <div class="flex items-center text-xs text-terminal-green">
+                                <span class="mr-2">📄</span>
+                                <span>PDF Document • Interactive Case Study</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 text-center">
+                            <div class="mb-4">
+                                <div class="inline-flex items-center justify-center w-16 h-16 bg-terminal-green bg-opacity-20 rounded-full mb-4">
+                                    <span class="text-terminal-green text-2xl">📄</span>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">PDF Document • Interactive Case Study</p>
+                            </div>
+                            <p class="text-terminal-blue mb-4 font-bold">The case study for this week will be added by the end of this week</p>
+                            <span class="inline-flex items-center px-6 py-3 border border-terminal-blue rounded-md text-terminal-blue opacity-50 cursor-not-allowed">
+                                <span class="mr-2">⬇</span>
+                                Coming Soon
+                            </span>
+                        </div>
+                        
+                        </div>
+                </div>
+
+                <!-- Main Case Study -->
+                <div class="card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="terminal-text font-bold text-xl mr-2">02</span>
+                        <span class="text-xs bg-terminal-blue bg-opacity-20 text-terminal-blue px-2 py-1 rounded">CASE STUDY</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 terminal-text">Business Model Innovation - FinTech Analysis</h3>
+                    
+                    <div class="bg-terminal-bg rounded-lg border border-terminal-blue border-opacity-30 overflow-hidden">
+                        <div class="p-4 border-b border-terminal-blue border-opacity-20">
+                            <p class="text-sm text-gray-300 mb-2">Comprehensive analysis of successful FinTech companies and their innovative approaches to disrupting traditional financial services.</p>
+                            <div class="flex items-center text-xs text-terminal-blue">
+                                <span class="mr-2">📄</span>
+                                <span>PDF Document • Business Analysis</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 text-center">
+                            <div class="mb-4">
+                                <div class="inline-flex items-center justify-center w-16 h-16 bg-terminal-blue bg-opacity-20 rounded-full mb-4">
+                                    <span class="text-terminal-blue text-2xl">📄</span>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">PDF Document • Business Analysis</p>
+                            </div>
+                            <p class="text-terminal-blue mb-4 font-bold">The case study for this week will be added by the end of this week</p>
+                            <span class="inline-flex items-center px-6 py-3 border border-terminal-blue rounded-md text-terminal-blue opacity-50 cursor-not-allowed">
+                                <span class="mr-2">⬇</span>
+                                Coming Soon
+                            </span>
+                        </div>
+                        
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources Section -->
+    <section id="additional-resources" class="py-16 bg-terminal-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center terminal-text">ADDITIONAL RESOURCES</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- PDF Resource 1 -->
+                    <div class="card p-6 rounded-lg hover:border-terminal-green transition-all duration-300 group">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-terminal-red bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-terminal-red text-xl">📄</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-terminal-green mb-2">Business Model Canvas Guide</h3>
+                                <p class="text-gray-400 text-sm mb-3">Complete guide to understanding and creating business model canvases for startup planning and strategy development.</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4">PDF • Internal Resource</span>
+                                    <span>Week 5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-terminal-green border-opacity-20">
+                            <span class="inline-flex items-center px-4 py-2 bg-terminal-red bg-opacity-10 border border-terminal-red rounded hover:bg-terminal-red hover:bg-opacity-20 transition-all duration-300 text-terminal-red hover:text-white group">
+                                <span class="mr-2 group-hover:translate-x-1 transition-transform">↓</span>
+                                Coming Soon
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- External Resource -->
+                    <div class="card p-6 rounded-lg hover:border-terminal-blue transition-all duration-300 group">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-terminal-blue bg-opacity-20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-terminal-blue text-xl">🌐</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-terminal-blue mb-2">FinTech Industry Report</h3>
+                                <p class="text-gray-400 text-sm mb-3">Latest industry insights on FinTech trends, market analysis, and emerging technologies in financial services.</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <span class="mr-4">Web Article • External Resource</span>
+                                    <span>Updated Weekly</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-terminal-blue border-opacity-20">
+                            <a href="https://example.com" target="_blank" class="inline-flex items-center px-4 py-2 bg-terminal-blue bg-opacity-10 border border-terminal-blue rounded hover:bg-terminal-blue hover:bg-opacity-20 transition-all duration-300 text-terminal-blue hover:text-white group">
+                                <span class="mr-2 group-hover:translate-x-1 transition-transform">→</span>
+                                Read Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="py-8 bg-terminal-bg border-t border-terminal-green border-opacity-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <a href="week4.html" class="px-6 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors mb-4 md:mb-0">
+                    ← Back to Home
+                </a>
+                <div class="flex space-x-4">
+                    <a href="week4.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
+                        ← Previous Week
+                    </a>
+                    <a href="../assessments.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
+                        Assessments
+                    </a>
+                    <a href="../quizzes.html" class="px-6 py-3 border border-terminal-amber rounded-md hover:bg-terminal-amber hover:bg-opacity-10 transition-colors">
+                        Quizzes
+                    </a>
+                    <a href="#" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors opacity-50 cursor-not-allowed">
+                        Next Week →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold terminal-text">Week 5 - Business Models & FinTech</div>
+                    <p class="text-sm text-gray-400">Winter Finance Bootcamp | Amartya Finance Society - IITMBS</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="mailto:finance.society@study.iitm.ac.in" class="text-gray-400 hover:text-terminal-green transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
+                &copy; 2026 Amartya Finance Society - IITMBS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
                                  alt="Financial Modeling 101" 
                                  class="w-full rounded-lg shadow-lg">
                             <div class="absolute inset-0 flex items-center justify-center">
