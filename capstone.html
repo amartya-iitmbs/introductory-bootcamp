@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capstone Project | Winter Finance Bootcamp | Amartya Finance Society - IITMBS</title>
     <meta name="description" content="Capstone Project for Winter Finance Bootcamp - Apply your knowledge to real-world finance challenges.">
-    <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
                     animation: {
                         'blink': 'blink 1s step-end infinite',
                         'ticker': 'ticker 30s linear infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         blink: {
@@ -43,10 +42,6 @@
                         ticker: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' }
-                        },
-                        glow: {
-                            from { text-shadow: '0 0 3px rgba(0, 255, 65, 0.8)' },
-                            to { text-shadow: '0 0 8px rgba(0, 255, 65, 1), 0 0 12px rgba(0, 255, 65, 0.6)' }
                         }
                     }
                 }
@@ -76,6 +71,14 @@
             font-weight: bold;
             text-shadow: 0 0 3px rgba(0, 255, 65, 0.8);
             animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 3px rgba(0, 255, 65, 0.8); }
+            to { text-shadow: 0 0 8px rgba(0, 255, 65, 1), 0 0 12px rgba(0, 255, 65, 0.6); }
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .card {
             background: rgba(10, 14, 39, 0.7);
@@ -120,19 +123,6 @@
         .hero-content {
             position: relative;
             z-index: 10;
-        }
-        .bg-grid-pattern {
-            background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
         }
     </style>
 </head>
@@ -199,27 +189,11 @@
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 terminal-text font-heading">CAPSTONE PROJECT</h1>
                 <p class="text-xl md:text-2xl mb-8 text-terminal-gold">REAL-WORLD FINANCE CHALLENGE</p>
-                <p class="text-lg mb-8 max-w-2xl mx-auto">Apply everything you've learned in the Winter Finance Bootcamp to solve a comprehensive, real-world finance problem. This is your opportunity to showcase your skills and earn your completion certificate.</p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Apply your bootcamp knowledge to solve a comprehensive finance challenge.</p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#problem-statement" class="px-8 py-3 border border-terminal-gold rounded-md hover:bg-terminal-gold hover:bg-opacity-10 transition-colors text-terminal-gold">VIEW PROBLEM STATEMENT</a>
                     <a href="#submission" class="px-8 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors">SUBMISSION GUIDELINES</a>
-                </div>
-                
-                <!-- Project Stats -->
-                <div class="grid grid-cols-3 gap-6 mt-16">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold terminal-gold">5</div>
-                        <div class="text-sm uppercase tracking-wider">Weeks of Learning</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold terminal-gold">1</div>
-                        <div class="text-sm uppercase tracking-wider">Grand Challenge</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold terminal-gold">∞</div>
-                        <div class="text-sm uppercase tracking-wider">Career Impact</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -243,19 +217,9 @@
                     </div>
                     
                     <div class="bg-terminal-bg p-6 rounded-lg border border-terminal-gold border-opacity-30 mb-6">
-                        <p class="text-lg mb-4 text-gray-300">
-                            The capstone project challenges you to apply concepts from all 5 weeks of the bootcamp to analyze, evaluate, and propose solutions for a complex financial scenario.
+                        <p class="text-lg text-gray-300">
+                            The PDF contains two problem statements - choose any one to complete.
                         </p>
-                        <p class="text-gray-300 mb-4">
-                            This comprehensive assessment will test your understanding of:
-                        </p>
-                        <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                            <li>Financial foundations and systems (Week 1)</li>
-                            <li>Time value of money and risk analysis (Week 2)</li>
-                            <li>Market mechanics and instruments (Week 3)</li>
-                            <li>Advanced derivatives and commodities (Week 4)</li>
-                            <li>Business models and FinTech innovation (Week 5)</li>
-                        </ul>
                     </div>
                     
                     <div class="text-center">
@@ -265,78 +229,13 @@
                             </div>
                             <p class="text-sm text-gray-400 mb-4">PDF Document • Detailed Problem Statement</p>
                         </div>
-                        <a href="../assets/resources/capstone_project.pdf" 
+                        <a href="assets/resources/capstone_project.pdf" 
                            target="_blank"
                            class="inline-flex items-center px-8 py-4 bg-terminal-gold text-black font-bold rounded hover:bg-terminal-gold hover:bg-opacity-80 transition-colors text-lg">
                             <span class="mr-2">📄</span>
                             Download Problem Statement
                         </a>
                         <p class="text-xs text-gray-500 mt-4">Click to open in new tab or right-click to save</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Requirements Section -->
-    <section id="requirements" class="py-16 bg-terminal-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center terminal-text">PROJECT REQUIREMENTS</h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="card p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-terminal-green bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-terminal-green text-xl">✓</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-terminal-green">Core Components</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="terminal-green mr-2">•</span>
-                                <span>Financial analysis and modeling</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-green mr-2">•</span>
-                                <span>Risk assessment and management</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-green mr-2">•</span>
-                                <span>Market research and data analysis</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-green mr-2">•</span>
-                                <span>Strategic recommendations</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-terminal-blue bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
-                                <span class="text-terminal-blue text-xl">📊</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-terminal-blue">Deliverables</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="terminal-blue mr-2">•</span>
-                                <span>Executive summary (1 page)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-blue mr-2">•</span>
-                                <span>Detailed analysis report (10-15 pages)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-blue mr-2">•</span>
-                                <span>Financial models and calculations</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="terminal-blue mr-2">•</span>
-                                <span>Presentation slides (optional)</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -363,25 +262,23 @@
                     <div class="grid md:grid-cols-2 gap-6 mb-8">
                         <div class="bg-terminal-bg p-4 rounded-lg border border-terminal-green border-opacity-30">
                             <h4 class="font-bold text-terminal-green mb-2">Submission Deadline</h4>
-                            <p class="text-lg font-bold">February 28, 2026</p>
-                            <p class="text-sm text-gray-400">11:59 PM IST</p>
+                            <p class="text-lg font-bold">February 8, 2026</p>
+                            <p class="text-sm text-gray-400">11:59 PM IST (EOD)</p>
                         </div>
                         <div class="bg-terminal-bg p-4 rounded-lg border border-terminal-blue border-opacity-30">
-                            <h4 class="font-bold text-terminal-blue mb-2">Format</h4>
-                            <p class="text-lg font-bold">PDF Document</p>
-                            <p class="text-sm text-gray-400">Max 20MB file size</p>
+                            <h4 class="font-bold text-terminal-blue mb-2">Accepted Formats</h4>
+                            <p class="text-lg font-bold">PDF, Word or PPT</p>
                         </div>
                     </div>
                     
                     <div class="bg-terminal-bg p-6 rounded-lg border border-terminal-amber border-opacity-30 mb-6">
                         <h4 class="font-bold text-terminal-amber mb-4">Submission Instructions:</h4>
                         <ol class="list-decimal list-inside text-gray-300 space-y-2">
-                            <li>Download and carefully read the problem statement</li>
-                            <li>Complete all required components of the analysis</li>
-                            <li>Prepare your submission in PDF format</li>
-                            <li>Name your file: <code class="bg-terminal-bg-light px-2 py-1 rounded">YourName_Capstone_Project.pdf</code></li>
-                            <li>Email your submission to: <code class="bg-terminal-bg-light px-2 py-1 rounded">finance.society@study.iitm.ac.in</code></li>
-                            <li>Use subject line: <code class="bg-terminal-bg-light px-2 py-1 rounded">Capstone Project Submission - Your Name</code></li>
+                            <li>Download and read the problem statement</li>
+                            <li>Complete all required components</li>
+                            <li>Prepare submission in PDF, Word, or PowerPoint format</li>
+                            <li>Google Forms submission link will be released a few days before the deadline</li>
+                            <li>Submit through the Google Form when the link is available</li>
                         </ol>
                     </div>
                     
@@ -398,61 +295,21 @@
         </div>
     </section>
 
-    <!-- Evaluation Criteria Section -->
-    <section id="evaluation" class="py-16 bg-terminal-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center terminal-text">EVALUATION CRITERIA</h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="card p-8 rounded-lg">
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-terminal-green bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-terminal-green text-2xl">📈</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-terminal-green mb-2">Technical Accuracy</h3>
-                            <p class="text-sm text-gray-400">40%</p>
-                            <p class="text-xs text-gray-500 mt-2">Correct application of financial concepts and calculations</p>
-                        </div>
-                        
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-terminal-blue bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-terminal-blue text-2xl">🔍</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-terminal-blue mb-2">Analysis Depth</h3>
-                            <p class="text-sm text-gray-400">35%</p>
-                            <p class="text-xs text-gray-500 mt-2">Quality of research, insights, and critical thinking</p>
-                        </div>
-                        
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-terminal-gold bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-terminal-gold text-2xl">💡</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-terminal-gold mb-2">Innovation</h3>
-                            <p class="text-sm text-gray-400">25%</p>
-                            <p class="text-xs text-gray-500 mt-2">Creativity and practical relevance of solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Navigation -->
     <section class="py-8 bg-terminal-bg border-t border-terminal-green border-opacity-20">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <a href="../index.html" class="px-6 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors mb-4 md:mb-0">
+                <a href="index.html" class="px-6 py-3 border border-terminal-green rounded-md hover:bg-terminal-green hover:bg-opacity-10 transition-colors mb-4 md:mb-0">
                     ← Back to Home
                 </a>
                 <div class="flex space-x-4">
-                    <a href="weeks.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
+                    <a href="weeks/weeks.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
                         All Weeks
                     </a>
-                    <a href="week5.html" class="px-6 py-3 border border-terminal-amber rounded-md hover:bg-terminal-amber hover:bg-opacity-10 transition-colors">
+                    <a href="weeks/week5.html" class="px-6 py-3 border border-terminal-amber rounded-md hover:bg-terminal-amber hover:bg-opacity-10 transition-colors">
                         ← Previous Week
                     </a>
-                    <a href="../assessments.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
+                    <a href="assessments.html" class="px-6 py-3 border border-terminal-blue rounded-md hover:bg-terminal-blue hover:bg-opacity-10 transition-colors">
                         Assessments
                     </a>
                 </div>
